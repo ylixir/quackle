@@ -1,7 +1,7 @@
 CC=g++
 
-QTFLAGS := $(shell pkg-config QtCore --cflags)
-QTLIBS := $(shell pkg-config QtCore --libs)
+QTFLAGS := $(shell pkg-config Qt5Core --cflags)
+QTLIBS := $(shell pkg-config Qt5Core --libs)
 PYTHONFLAGS := $(shell pkg-config python2 --cflags)
 PHPFLAGS := $(shell php-config --includes)
 PHPLIBS := $(shell php-config --libs)
