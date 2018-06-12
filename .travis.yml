@@ -5,11 +5,19 @@ matrix:
   include:
     - os: linux
       compiler: gcc
+      dist: trusty
+
+    - os: linux
+      compiler: gcc
+      dist: xenial
+
+    - os: linux
+      compiler: gcc
+      dist: bionic
 
     - os: linux
       compiler: clang
-
-    - os: osx
+      dist: bionic
 
 before_install:
   - if [ $TRAVIS_OS_NAME = osx ]; then brew install qt; fi
@@ -40,4 +48,6 @@ script:
   - cd quackleio/iotest && qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC" && make -j 2
   - cd ../..
   - cd test && qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC" && make -j 2
+  - cd ..
+  - cd bindings && make -j 2
   - cd ..
