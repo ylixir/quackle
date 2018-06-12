@@ -35,6 +35,7 @@
 #include "quackleio/util.h"
 #include "quackleio/logania.h"
 #include "quackleio/gcgio.h"
+#include "quackleio/gaddagfactory.h"
 %}
 
 
@@ -109,3 +110,4 @@ namespace Quackle
 %include "quackleio/util.h"
 %include "quackleio/logania.h"
 %include "quackleio/gcgio.h"
+%include "quackleio/gaddagfactory.h"
