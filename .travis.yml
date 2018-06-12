@@ -12,12 +12,8 @@ matrix:
       dist: xenial
 
     - os: linux
-      compiler: gcc
-      dist: bionic
-
-    - os: linux
       compiler: clang
-      dist: bionic
+      dist: xenial
 
 before_install:
   - if [ $TRAVIS_OS_NAME = osx ]; then brew install qt; fi
@@ -30,7 +26,7 @@ install:
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install -qq g++-5; fi
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90; fi
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install qtbase5-dev; fi
-  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install lua5.1 swig; fi
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install liblua5.1-0-dev swig; fi
 
 script:
   - qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC" && make -j 2
@@ -50,5 +46,5 @@ script:
   - cd ../..
   - cd test && qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC" && make -j 2
   - cd ..
-  - cd bindings && make -j 2
+  - cd bindings && make
   - cd ..
