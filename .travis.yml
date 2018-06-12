@@ -30,6 +30,7 @@ install:
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install -qq g++-5; fi
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90; fi
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install qtbase5-dev; fi
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install lua5.1 swig; fi
 
 script:
   - qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC" && make -j 2
